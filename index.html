@@ -27,6 +27,100 @@ button{height:46px;border:0;border-radius:10px;font-size:14px;font-weight:750;cu
 .preview-wrap{position:relative;width:min(540px,75vw);aspect-ratio:1080/1920}
 .preview-stage{position:absolute;left:0;top:0;transform-origin:top left;transform:scale(var(--scale))}
 @media(max-width:900px){.app{grid-template-columns:1fr}.panel{border-right:0;border-bottom:1px solid #e5e7eb}.preview-area{min-height:760px}.preview-wrap{width:min(430px,88vw)}}
+
+/* --- 1080x1920 calibrated story canvas --- */
+#stage{
+  position:relative;
+  width:1080px;
+  height:1920px;
+  overflow:hidden;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+#artwork{
+  position:absolute;
+  inset:0;
+  width:1080px;
+  height:1920px;
+  display:block;
+}
+.field{
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+}
+#runnerName{
+  top:1292px;
+  height:96px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 90px;
+  color:#15519a;
+  font-size:72px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:.5px;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.stats-row{
+  position:absolute;
+  z-index:2;
+  left:82px;
+  right:82px;
+  top:1516px;
+  height:112px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:start;
+}
+.stat{
+  min-width:0;
+  height:112px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  color:#fff;
+  text-align:center;
+}
+.stat-label{
+  height:30px;
+  margin:0;
+  font-size:24px;
+  line-height:30px;
+  font-style:italic;
+  font-weight:500;
+  letter-spacing:.2px;
+}
+.stat-value{
+  margin-top:8px;
+  max-width:100%;
+  padding:0 10px;
+  font-size:48px;
+  line-height:52px;
+  font-weight:800;
+  letter-spacing:.2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#categoryStat .stat-value{
+  font-size:44px;
+}
+#positionStat .stat-value{
+  font-size:48px;
+}
+.hidden{display:none !important}
+
+@media(max-width:900px){
+  #runnerName{font-size:68px}
+  .stats-row{left:70px;right:70px}
+}
+
 </style>
 </head>
 <body>
@@ -59,24 +153,23 @@ button{height:46px;border:0;border-radius:10px;font-size:14px;font-weight:750;cu
 
   <div id="runnerName" class="field"></div>
 
-  <div id="finishStat" class="stat">
-    <div class="stat-label">Finish Time</div>
-    <div id="finishTime" class="stat-value"></div>
-  </div>
-
-  <div id="paceStat" class="stat">
-    <div class="stat-label">Pace</div>
-    <div id="pace" class="stat-value"></div>
-  </div>
-
-  <div id="categoryStat" class="stat">
-    <div class="stat-label">Category</div>
-    <div id="category" class="stat-value"></div>
-  </div>
-
-  <div id="positionStat" class="stat">
-    <div class="stat-label">Position</div>
-    <div id="position" class="stat-value"></div>
+  <div class="stats-row">
+    <div id="finishStat" class="stat">
+      <div class="stat-label">Finish Time</div>
+      <div id="finishTime" class="stat-value"></div>
+    </div>
+    <div id="paceStat" class="stat">
+      <div class="stat-label">Pace</div>
+      <div id="pace" class="stat-value"></div>
+    </div>
+    <div id="categoryStat" class="stat">
+      <div class="stat-label">Category</div>
+      <div id="category" class="stat-value"></div>
+    </div>
+    <div id="positionStat" class="stat">
+      <div class="stat-label">Position</div>
+      <div id="position" class="stat-value"></div>
+    </div>
   </div>
 </div>
 </div></div>
