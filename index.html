@@ -50,4 +50,5 @@ const pos=((''+$('inputPosition').value).trim()?('#'+$('inputPosition').value.tr
 const metrics=showPosition
   ? [[192.2,'Finish Time',$('inputFinish').value.trim()||'—','43.1px Arial'],[389,'Pace',$('inputPace').value.trim()||'—','43.1px Arial'],[621,'Category',$('inputCategory').value||'—','40.3px Arial'],[864.9,'Position',pos,'43.1px Arial']]
   : [[242.2,'Finish Time',$('inputFinish').value.trim()||'—','43.1px Arial'],[539.1,'Pace',$('inputPace').value.trim()||'—','43.1px Arial'],[836,'Category',$('inputCategory').value||'—','40.3px Arial']];for(const [cx,label,value,font] of metrics){if(label==='Position'&&!$('showPosition').checked)continue;ctx.fillStyle='#fff';ctx.font='italic 400 22px Arial';ctx.fillText(label,cx,1527.8);ctx.font='800 '+font;ctx.fillText(value,cx,1578.8)}const a=document.createElement('a');a.download='pocari-run-share-story.png';a.href=canvas.toDataURL('image/png');a.click()};
-</script></body></html>
+</script><script type="module" src="/analytics.bundle.js"></script>
+</body></html>
